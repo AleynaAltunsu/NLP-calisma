@@ -1,5 +1,27 @@
-
 # README
+
+(Word Embeddinglerin Farkları:
+Word2Vec:
+
+Temel Yapısı: Kelimeleri eğitilmiş bir modelden vektör olarak temsil eder. Kelimeler arasındaki anlamsal benzerliği öğrenir.
+Kelime Seviyesinde Gömme: Word2Vec modelinde her kelime bir vektör olarak temsil edilir. Model, kelimelerin komşu kelimelerine dayanarak vektörleri öğrenir.
+Eksik Kelimeler: Word2Vec kelimenin vektör temsili yalnızca eğitimde gördüğü kelimelerle sınırlıdır. Modelin görmediği bir kelime ile karşılaşırsa vektör elde edemez.
+GloVe:
+
+Temel Yapısı: GloVe, kelime-ortam matrisi oluşturur ve bu matrisin düşük boyutlu vektör temsillerine ayrıştırılması ile kelime vektörleri oluşturur. Vektörler, kelimeler arası istatistiksel ilişkilere dayanır.
+Anlam İlişkisi: Word2Vec gibi GloVe de kelimeler arasındaki anlamsal ilişkileri yakalar. GloVe'nin genellikle kelime çiftleri arasında daha sabit bir ilişki sunduğu düşünülür.
+Eksik Kelimeler: GloVe de Word2Vec gibi, yalnızca eğitim verisinde bulunan kelimeler için vektör üretebilir.
+
+*FastText:*
+
+Temel Yapısı: Kelimeleri alt parçalara (subword) böler. Bu sayede, kelime düzeyinde temsil yapmanın ötesine geçer.
+Karakter Seviyesinde Gömme: FastText, her kelimenin karakter seviyesindeki bileşenlerini öğrenir. Bu yüzden yeni veya nadir kelimeleri bile anlayabilir ve bir vektör çıkarabilir.
+Eksik Kelimelerle Baş Etme: FastText, eğitilmemiş veya nadir kelimelere karşı çok daha esnek davranır. Çünkü kelimenin içindeki alt parçalardan anlam çıkarabilir ve vektör üretebilir.
+Genel Farklar:
+Word2Vec ve GloVe, tamamen kelime seviyesinde çalışırken FastText, alt kelime birimlerini (subword) kullanır, bu nedenle nadir veya yeni kelimelere karşı daha dayanıklıdır.
+Word2Vec ve FastText iki aşamalı eğitim yaparken (gömme öğrenimi ve bağlama göre iyileştirme), GloVe büyük bir kelime-cooccurrence matrisini indirgemeye odaklanır.
+FastText, yeni kelimeler veya dilbilgisel değişikliklere uğramış kelimelerle çalışırken daha başarılıdır (örneğin, ek almış kelimeler). Word2Vec ve GloVe, eğitim setlerinde olmayan kelimelerle çalışmakta zorlanır.
+Her modelin seçimi, kullanım amacına göre değişir. Word2Vec ve GloVe genellikle benzer performanslar gösterse de, nadir kelimeler veya ekli kelimeler içeren metinlerde FastText daha iyi sonuç verir.)
 
 ## Proje Açıklaması
 Bu proje, Gensim kütüphanesi kullanarak bir FastText kelime gömme modeli üzerinde basit bir kelime tahmin oyunu geliştirmektedir. Oyuncu, rastgele seçilen bir kelimeyi tahmin etmeye çalışırken, modeldeki kelimeler arasındaki vektörel mesafeyi kullanarak doğru tahmin yapmaya çalışır.
